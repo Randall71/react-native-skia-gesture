@@ -37,7 +37,7 @@ const Canvas: React.FC<TouchableCanvasProps> = ({
     TouchableHandlerContextType['value']
   >({});
 
-  const ref = useRef<NodeJS.Timeout>();
+  const ref = useRef<NodeJS.Timeout | undefined>(undefined);
 
   useEffect(() => {
     ref.current = setTimeout(() => {
