@@ -40,13 +40,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/enzomanuelmangano/react-native-skia-gesture",
-  "author": "Enzo Manuel Mangano <enzomanuelmangano@gmail.com> (https://github.com/enzomanuelmangano)",
+  "repository": "https://github.com/Randall71/react-native-skia-gesture",
+  "author": "Randall71 <randall71@gmail.com> (https://github.com/Randall71)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/enzomanuelmangano/react-native-skia-gesture/issues"
+    "url": "https://github.com/Randall71/react-native-skia-gesture/issues"
   },
-  "homepage": "https://github.com/enzomanuelmangano/react-native-skia-gesture#readme",
+  "homepage": "https://github.com/Randall71/react-native-skia-gesture#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
