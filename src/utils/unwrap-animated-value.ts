@@ -1,9 +1,15 @@
 import { SharedValue } from 'react-native-reanimated';
 
-const unwrapAnimatedValue = <T>(value: SharedValue<T> | T): T => {
+const unwrapAnimatedValue = <T>(
+  value: SharedValue<T> | T | undefined
+): T | undefined => {
   'worklet';
 
-  if ((value as SharedValue<T>).value != null) {
+  if (value === undefined) {
+    return undefined;
+  }
+
+  if ((value as SharedValue<T>).value !== undefined) {
     return (value as SharedValue<T>).value as T;
   }
 

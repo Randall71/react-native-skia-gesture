@@ -1,5 +1,5 @@
 import { type SkPath, type Vector } from '@shopify/react-native-skia';
-import { useCallback, useEffect, useId } from 'react';
+import React, { useCallback, useEffect, useId } from 'react';
 
 import { useTouchHandlerContext } from '../canvas/context';
 import { getCirclePath } from '../utils/get-circle-path';
@@ -50,7 +50,7 @@ export const getSkiaPath = (key: string, props: any) => {
 };
 
 const withTouchableHandler = <T,>(
-  Component: (props: WithTouchableHandlerProps<T>) => JSX.Element,
+  Component: React.ComponentType<T>,
   componentName?: string
 ) => {
   return ({
@@ -89,7 +89,8 @@ const withTouchableHandler = <T,>(
       (point: Vector) => {
         'worklet';
         if (touchablePath) {
-          return unwrapAnimatedValue(touchablePath).contains(point.x, point.y);
+          const path = unwrapAnimatedValue(touchablePath);
+          return path ? path.contains(point.x, point.y) : false;
         }
 
         if (!componentName) return false;
@@ -122,7 +123,7 @@ const withTouchableHandler = <T,>(
       };
     }, [id, props, ref, touchablePath]);
 
-    return Component(props as any);
+    return <Component {...(props as any)} />;
   };
 };
 
